@@ -1,0 +1,100 @@
+
+```cpp
+#include <bits/stdc++.h>   
+using namespace std;
+
+// Class Definition
+class Teacher {
+
+private:
+    // Private Data Member
+    // Cannot be accessed directly outside the class
+    double salary;
+
+public:
+    // Public Data Members
+    string name;
+    string dept;
+    string subject;
+
+    // Member Function
+    // Used to change department
+    void changeDept(string newdept) {
+        dept = newdept;
+    }
+
+    // Setter Function
+    // Used to modify private variable
+    void setSalary(double s) {
+        salary = s;
+    }
+
+    // Getter Function
+    // Used to access private variable
+    double getSalary() {
+        return salary;
+    }
+};
+
+// Main Function
+// Program execution starts here
+int main() {
+
+    // Object Creation
+    // t1 is an object of class Teacher
+    Teacher t1;
+
+    // Accessing Public Data Members using dot operator
+    t1.name = "Mukunda Sai";
+    t1.dept = "Computer Science";
+    t1.subject = "C++";
+
+    // Calling Member Function
+    cout << t1.name << endl;
+
+    // Calling Setter Function
+    t1.setSalary(2000);
+
+    // Calling Getter Function
+    cout << t1.getSalary() << endl;
+
+    return 0;
+}
+```
+
+---------------------------------------------------------------------
+
+Concepts Explained
+
+Class  
+A class is a blueprint used to create objects.
+
+Object  
+An object is an instance of a class.  
+Example: Teacher t1;
+
+Access Specifiers  
+
+private  
+Members accessible only inside the class.
+
+public  
+Members accessible anywhere in the program.
+
+Encapsulation  
+The salary variable is private.  
+It can only be accessed using getter and setter functions.  
+This protects data from direct modification.
+
+Dot Operator  
+Used to access data members and member functions.  
+Example: t1.name  
+Example: t1.setSalary()
+
+---------------------------------------------------------------------
+
+Program Output
+
+Mukunda Sai  
+2000  
+
