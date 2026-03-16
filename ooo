@@ -1,0 +1,318 @@
+# C++ OOP Concepts
+
+Object-Oriented Programming (OOP) is a programming paradigm that binds together **data and functions** that operate on the data so that only specific functions can access the data.
+
+---
+
+# Characteristics of Object-Oriented Programming
+
+## 1. Class
+
+A **Class** is a user-defined data type that contains data members and member functions.
+It acts as a **blueprint for creating objects**.
+
+```cpp
+class Person {
+    char name[50];
+    int id;
+
+public:
+    void getDetails() {
+        // code
+    }
+};
+```
+
+### Difference Between Struct and Class
+
+| Struct                            | Class                              |
+| --------------------------------- | ---------------------------------- |
+| Members are **public by default** | Members are **private by default** |
+
+---
+
+## Static Member Function
+
+A **static function** belongs to the class instead of objects.
+
+```cpp
+class X {
+public:
+    static void f() {
+        cout << "Static Function";
+    }
+};
+
+int main() {
+    X::f();   // calling using class name
+}
+```
+
+---
+
+## Const Member Function
+
+A **const function** cannot modify class data members.
+
+```cpp
+class Test {
+public:
+    void show() const {
+        cout << "Const Function";
+    }
+};
+```
+
+---
+
+# 2. Object
+
+An **Object** is an instance of a class.
+
+Memory is allocated **only when an object is created**.
+
+```cpp
+Person p1;
+```
+
+Objects contain:
+
+* Data
+* Methods (functions)
+
+---
+
+# 3. Encapsulation
+
+Encapsulation means **wrapping data and functions into a single unit**.
+
+Example:
+
+```cpp
+class Student {
+private:
+    int marks;
+
+public:
+    void setMarks(int m) {
+        marks = m;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+};
+```
+
+Benefits:
+
+* Data protection
+* Code maintainability
+
+---
+
+# 4. Abstraction
+
+Abstraction means **showing only essential information and hiding internal implementation**.
+
+Example:
+
+```cpp
+class Car {
+public:
+    void start(); // user knows start(), not internal working
+};
+```
+
+Types:
+
+* Abstraction using **classes**
+* Abstraction using **header files**
+
+---
+
+# 5. Inheritance
+
+Inheritance allows a class to **reuse properties of another class**.
+
+### Syntax
+
+```cpp
+class Derived : access_modifier Base {
+};
+```
+
+Example:
+
+```cpp
+class Animal {
+public:
+    void eat() {
+        cout << "Eating";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Barking";
+    }
+};
+```
+
+---
+
+# Types of Inheritance
+
+1. Single Inheritance
+2. Multiple Inheritance
+3. Multilevel Inheritance
+4. Hierarchical Inheritance
+5. Hybrid Inheritance
+
+---
+
+# Constructor Calling in Inheritance
+
+Base class constructor is called **before derived class constructor**.
+
+Example:
+
+```cpp
+class Base {
+public:
+    Base(int x) {
+        cout << "Base Constructor";
+    }
+};
+
+class Derived : public Base {
+public:
+    Derived(int y) : Base(y) {
+        cout << "Derived Constructor";
+    }
+};
+```
+
+---
+
+# Ambiguity in Multiple Inheritance
+
+```cpp
+class A {
+public:
+    void display() {}
+};
+
+class B {
+public:
+    void display() {}
+};
+
+class C : public A, public B {
+public:
+    void show() {
+        A::display();
+        B::display();
+    }
+};
+```
+
+---
+
+# Virtual Inheritance (Diamond Problem)
+
+```cpp
+class A {
+public:
+    void show() {}
+};
+
+class B : virtual public A {};
+class C : virtual public A {};
+
+class D : public B, public C {};
+```
+
+This avoids **duplicate copies of base class**.
+
+---
+
+# Polymorphism
+
+Polymorphism means **many forms**.
+
+## Types of Polymorphism
+
+### 1. Compile-Time Polymorphism
+
+Achieved using:
+
+* Function Overloading
+* Operator Overloading
+
+Example:
+
+```cpp
+int add(int a, int b);
+double add(double a, double b);
+```
+
+---
+
+### 2. Run-Time Polymorphism
+
+Achieved using **Virtual Functions** and **Function Overriding**.
+
+Example:
+
+```cpp
+class Base {
+public:
+    virtual void show() {
+        cout << "Base";
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() {
+        cout << "Derived";
+    }
+};
+```
+
+---
+
+# Compile Time vs Run Time Polymorphism
+
+| Compile Time          | Run Time            |
+| --------------------- | ------------------- |
+| Known at compile time | Known at runtime    |
+| Function Overloading  | Function Overriding |
+| Static Binding        | Dynamic Binding     |
+| Faster                | Slightly slower     |
+
+---
+
+# Summary
+
+Main OOP concepts:
+
+* Class
+* Object
+* Encapsulation
+* Abstraction
+* Inheritance
+* Polymorphism
+
+These concepts help in:
+
+* Code Reusability
+* Data Security
+* Better Program Structure
+* Easier Maintenance
+
+---
+
+⭐ If you like this repository, consider giving it a **star**.
